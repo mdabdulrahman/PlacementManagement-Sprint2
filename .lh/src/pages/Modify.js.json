@@ -1,0 +1,74 @@
+{
+    "sourceFile": "src/pages/Modify.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1724580451687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724580593649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,16 @@\n import React from 'react'\r\n import Header from '../Components/Header'\r\n+import { useParams } from 'react-router-dom'\r\n+import axios from 'axios';\r\n \r\n-function Modify(props) {\r\n+function Modify() {\r\n+  const id = useParams();\r\n+  let base_url = \"http://localhost/api/placement\";\r\n   return (\r\n     <div>\r\n         <Header/>\r\n-        <Edit data={props.data}/>\r\n+        <Edit data={()=>axios.get()}/>\r\n     </div>\r\n   )\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1724581046757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,36 @@\n-import React from 'react'\r\n+import React, { useState } from 'react'\r\n import Header from '../Components/Header'\r\n-import { useParams } from 'react-router-dom'\r\n+import { useNavigate, useParams } from 'react-router-dom'\r\n import axios from 'axios';\r\n \r\n function Modify() {\r\n   const id = useParams();\r\n+  const navigate = useNavigate();\r\n   let base_url = \"http://localhost/api/placement\";\r\n+  const [data,setData] = useState([]);\r\n+  const [isLoading,setIsLoading] = useState(true);\r\n+\r\n+  useEffect(() => {\r\n+    axios.get(base_url+\"/search?id=\"+id).then\r\n+  (\r\n+    res=>{\r\n+        if( res.data.length == 0 )\r\n+        {\r\n+            alert(\"Id not Found!\");\r\n+            navigate(\"/\");\r\n+        }\r\n+        setData(res.data);\r\n+        setIsLoading(false);\r\n+\r\n+    }\r\n+  ).catch( err => )\r\n+  }, [])\r\n+  \r\n   return (\r\n     <div>\r\n         <Header/>\r\n-        <Edit data={()=>axios.get()}/>\r\n+        <Edit data={()=>}/>\r\n     </div>\r\n   )\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1724581114935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,15 +22,16 @@\n         setData(res.data);\r\n         setIsLoading(false);\r\n \r\n     }\r\n-  ).catch( err => )\r\n+  )\r\n   }, [])\r\n   \r\n   return (\r\n     <div>\r\n         <Header/>\r\n-        <Edit data={()=>}/>\r\n+        {!isLoading?\r\n+        <Edit data={data}/>:\"Loading..\"}\r\n     </div>\r\n   )\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1724581189204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React, { useState } from 'react'\r\n+import React, { useState,useEffect } from 'react'\r\n import Header from '../Components/Header'\r\n import { useNavigate, useParams } from 'react-router-dom'\r\n import axios from 'axios';\r\n \r\n"
+                },
+                {
+                    "date": 1724581196703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React, { useState,useEffect } from 'react'\r\n import Header from '../Components/Header'\r\n import { useNavigate, useParams } from 'react-router-dom'\r\n import axios from 'axios';\r\n-\r\n+import Edit from '../Components/Edit';\r\n function Modify() {\r\n   const id = useParams();\r\n   const navigate = useNavigate();\r\n   let base_url = \"http://localhost/api/placement\";\r\n"
+                },
+                {
+                    "date": 1724581235802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { useNavigate, useParams } from 'react-router-dom'\r\n import axios from 'axios';\r\n import Edit from '../Components/Edit';\r\n function Modify() {\r\n-  const id = useParams();\r\n+  const {id} = useParams();\r\n   const navigate = useNavigate();\r\n   let base_url = \"http://localhost/api/placement\";\r\n   const [data,setData] = useState([]);\r\n   const [isLoading,setIsLoading] = useState(true);\r\n"
+                },
+                {
+                    "date": 1724581282130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         setData(res.data);\r\n         setIsLoading(false);\r\n \r\n     }\r\n-  )\r\n+  ).catch(err=>alert(err))\r\n   }, [])\r\n   \r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1724581397755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n   const [data,setData] = useState([]);\r\n   const [isLoading,setIsLoading] = useState(true);\r\n \r\n   useEffect(() => {\r\n+    alert(id)\r\n     axios.get(base_url+\"/search?id=\"+id).then\r\n   (\r\n     res=>{\r\n         if( res.data.length == 0 )\r\n"
+                },
+                {
+                    "date": 1724581461685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   const [isLoading,setIsLoading] = useState(true);\r\n \r\n   useEffect(() => {\r\n     alert(id)\r\n-    axios.get(base_url+\"/search?id=\"+id).then\r\n+    axios.get(base_url+\"/search?id=\"+id.get('id')).then\r\n   (\r\n     res=>{\r\n         if( res.data.length == 0 )\r\n         {\r\n"
+                },
+                {
+                    "date": 1724581515978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,17 +3,17 @@\n import { useNavigate, useParams } from 'react-router-dom'\r\n import axios from 'axios';\r\n import Edit from '../Components/Edit';\r\n function Modify() {\r\n-  const {id} = useParams();\r\n+  const [search] = useSearchParams();\r\n   const navigate = useNavigate();\r\n   let base_url = \"http://localhost/api/placement\";\r\n   const [data,setData] = useState([]);\r\n   const [isLoading,setIsLoading] = useState(true);\r\n \r\n   useEffect(() => {\r\n-    alert(id)\r\n-    axios.get(base_url+\"/search?id=\"+id.get('id')).then\r\n+    \r\n+    axios.get(base_url+\"/search?id=\"+search.get('id')).then\r\n   (\r\n     res=>{\r\n         if( res.data.length == 0 )\r\n         {\r\n"
+                },
+                {
+                    "date": 1724581527497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React, { useState,useEffect } from 'react'\r\n import Header from '../Components/Header'\r\n-import { useNavigate, useParams } from 'react-router-dom'\r\n+import { useNavigate, useSearchParams } from 'react-router-dom'\r\n import axios from 'axios';\r\n import Edit from '../Components/Edit';\r\n function Modify() {\r\n   const [search] = useSearchParams();\r\n"
+                },
+                {
+                    "date": 1724581571095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,11 @@\n   (\r\n     res=>{\r\n         if( res.data.length == 0 )\r\n         {\r\n+            navigate(\"/\");\r\n             alert(\"Id not Found!\");\r\n-            navigate(\"/\");\r\n+          \r\n         }\r\n         setData(res.data);\r\n         setIsLoading(false);\r\n \r\n"
+                },
+                {
+                    "date": 1724581633198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,13 +17,15 @@\n     res=>{\r\n         if( res.data.length == 0 )\r\n         {\r\n             navigate(\"/\");\r\n-            alert(\"Id not Found!\");\r\n-          \r\n+            alert(\"Id not Found !\")\r\n         }\r\n+        else\r\n+        {\r\n         setData(res.data);\r\n         setIsLoading(false);\r\n+        }\r\n \r\n     }\r\n   ).catch(err=>alert(err))\r\n   }, [])\r\n"
+                },
+                {
+                    "date": 1724582090081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   return (\r\n     <div>\r\n         <Header/>\r\n         {!isLoading?\r\n-        <Edit data={data}/>:\"Loading..\"}\r\n+        <Edit data={data[0]}/>:\"Loading..\"}\r\n     </div>\r\n   )\r\n }\r\n \r\n"
+                }
+            ],
+            "date": 1724580451687,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\nimport Header from '../Components/Header'\r\n\r\nfunction Modify(props) {\r\n  return (\r\n    <div>\r\n        <Header/>\r\n        <Edit data={props.data}/>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default Modify"
+        }
+    ]
+}

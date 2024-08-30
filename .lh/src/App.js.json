@@ -1,0 +1,82 @@
+{
+    "sourceFile": "src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1724567131497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724567141125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n function App() {\n   return (\n     <div className=\"App\">\n-      \n+      <h1>Hello</h1>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1724567254402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n function App() {\n   return (\n     <div className=\"App\">\n-      <h1>Hello</h1>\n+      hi\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1724567293738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \n function App() {\n   return (\n     <div className=\"App\">\n-      hi\n+      <h1>Placement Service</h1>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1724567360580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n \n import './App.css';\n+import Header from './Components/Header';\n \n function App() {\n   return (\n     <div className=\"App\">\n-      <h1>Placement Service</h1>\n+     <Header/>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1724569071728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n \n import './App.css';\n import Header from './Components/Header';\n+import Table from './Components/Table';\n \n function App() {\n   return (\n     <div className=\"App\">\n      <Header/>\n+     <Table/>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1724570248416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \n import './App.css';\n import Header from './Components/Header';\n import Table from './Components/Table';\n-\n+import 'bootstrap/dist/css/bootstrap.min.css';\n function App() {\n   return (\n     <div className=\"App\">\n      <Header/>\n"
+                },
+                {
+                    "date": 1724570445217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n \n import './App.css';\n import Header from './Components/Header';\n import Table from './Components/Table';\n-import 'bootstrap/dist/css/bootstrap.min.css';\n+\n function App() {\n   return (\n     <div className=\"App\">\n      <Header/>\n"
+                },
+                {
+                    "date": 1724576023344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,19 @@\n \n+import { useState } from 'react';\n import './App.css';\n import Header from './Components/Header';\n import Table from './Components/Table';\n \n function App() {\n+const [count,setCount] = useState(0);\n+\n   return (\n     <div className=\"App\">\n      <Header/>\n      <Table/>\n+     {count};\n+     <button onClick={()=>setCount(count+1)}>click</button>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1724576252988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,18 @@\n+\n+import { useState } from 'react';\n+import './App.css';\n+import Header from './Components/Header';\n+import Table from './Components/Table';\n+\n+function App() {\n+\n+  return (\n+    <div className=\"App\">\n+     <Header/>\n+     <Table/>\n+    \n+    </div>\n+  );\n+}\n+\n+export default App;\n"
+                },
+                {
+                    "date": 1724580066218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,37 +2,21 @@\n import { useState } from 'react';\n import './App.css';\n import Header from './Components/Header';\n import Table from './Components/Table';\n+import { BrowserRouter, Routes } from 'react-router-dom';\n \n function App() {\n \n   return (\n     <div className=\"App\">\n-     <Header/>\n-     <Table/>\n+    <BrowserRouter>\n+    <Routes>\n+      <Route path=\"/\" element={<Home/>}/>\n+    </Routes>\n+    </BrowserRouter>\n     \n     </div>\n   );\n }\n \n export default App;\n-\n-import { useState } from 'react';\n-import './App.css';\n-import Header from './Components/Header';\n-import Table from './Components/Table';\n-\n-function App() {\n-const [count,setCount] = useState(0);\n-\n-  return (\n-    <div className=\"App\">\n-     <Header/>\n-     <Table/>\n-     {count};\n-     <button onClick={()=>setCount(count+1)}>click</button>\n-    </div>\n-  );\n-}\n-\n-export default App;\n"
+                },
+                {
+                    "date": 1724580173450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import './App.css';\n import Header from './Components/Header';\n import Table from './Components/Table';\n import { BrowserRouter, Routes } from 'react-router-dom';\n-\n+import Home from './pages/Home'\n function App() {\n \n   return (\n     <div className=\"App\">\n"
+                },
+                {
+                    "date": 1724580248773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { useState } from 'react';\n import './App.css';\n import Header from './Components/Header';\n import Table from './Components/Table';\n-import { BrowserRouter, Routes } from 'react-router-dom';\n+import { BrowserRouter, Routes,Route } from 'react-router-dom';\n import Home from './pages/Home'\n function App() {\n \n   return (\n"
+                },
+                {
+                    "date": 1724581165232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,17 @@\n import Header from './Components/Header';\n import Table from './Components/Table';\n import { BrowserRouter, Routes,Route } from 'react-router-dom';\n import Home from './pages/Home'\n+import Modify from './pages/Modify';\n function App() {\n \n   return (\n     <div className=\"App\">\n     <BrowserRouter>\n     <Routes>\n       <Route path=\"/\" element={<Home/>}/>\n+      <Route path=\"/modify\" element={<Modify/>}/>\n     </Routes>\n     </BrowserRouter>\n     \n     </div>\n"
+                },
+                {
+                    "date": 1724585567132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,16 +5,18 @@\n import Table from './Components/Table';\n import { BrowserRouter, Routes,Route } from 'react-router-dom';\n import Home from './pages/Home'\n import Modify from './pages/Modify';\n+import Add from './pages/Add';\n function App() {\n \n   return (\n     <div className=\"App\">\n     <BrowserRouter>\n     <Routes>\n       <Route path=\"/\" element={<Home/>}/>\n       <Route path=\"/modify\" element={<Modify/>}/>\n+      <Route path='/add' element={<Add/>}\n     </Routes>\n     </BrowserRouter>\n     \n     </div>\n"
+                },
+                {
+                    "date": 1724585573135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     <BrowserRouter>\n     <Routes>\n       <Route path=\"/\" element={<Home/>}/>\n       <Route path=\"/modify\" element={<Modify/>}/>\n-      <Route path='/add' element={<Add/>}\n+      <Route path='/add' element={<Add/>}/>\n     </Routes>\n     </BrowserRouter>\n     \n     </div>\n"
+                },
+                {
+                    "date": 1724590467325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,23 @@\n+import './App.css';\n+import { BrowserRouter, Routes,Route } from 'react-router-dom';\n+import Home from './pages/Home'\n+import Modify from './pages/Modify';\n+import Add from './pages/Add';\n+function App() {\n+\n+  return (\n+    \n+    <div className=\"App\">\n+    <BrowserRouter>\n+    <Routes>\n+      <Route path=\"/\" element={<Home/>}/>\n+      <Route path=\"/modify\" element={<Modify/>}/>\n+      <Route path='/add' element={<Add/>}/>\n+    </Routes>\n+    </BrowserRouter>\n+    \n+    </div>\n+  );\n+}\n+\n+export default App;\n"
+                }
+            ],
+            "date": 1724567131497,
+            "name": "Commit-0",
+            "content": "\nimport './App.css';\n\nfunction App() {\n  return (\n    <div className=\"App\">\n      \n    </div>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}

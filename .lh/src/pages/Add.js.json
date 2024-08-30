@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/Add.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1724585532780,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1724585532780,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\nimport Header from '../Components/Header'\r\nimport NewData from '../Components/NewData'\r\n\r\nfunction Add() {\r\n  return (\r\n    <div>\r\n        <Header/>\r\n        <NewData/>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default Add"
+        }
+    ]
+}

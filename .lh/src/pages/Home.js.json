@@ -1,0 +1,46 @@
+{
+    "sourceFile": "src/pages/Home.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1724580116406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1724580135525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from 'react'\r\n import Header from '../Components/Header'\r\n-\r\n+import Table from '../Components/Table'\r\n function () {\r\n   return (\r\n     <div>\r\n         <Header/>\r\n"
+                },
+                {
+                    "date": 1724580145760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n import React from 'react'\r\n import Header from '../Components/Header'\r\n import Table from '../Components/Table'\r\n-function () {\r\n+function Home() {\r\n   return (\r\n     <div>\r\n         <Header/>\r\n         <Table/>\r\n     </div>\r\n   )\r\n }\r\n \r\n\\ No newline at end of file\n-export default \n+export default Home;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724585846098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import React from 'react'\r\n+import Header from '../Components/Header'\r\n+import Table from '../Components/Table'\r\n+import { useNavigate } from 'react-router-dom'\r\n+function Home() {\r\n+    let navigate = useNavigate();\r\n+  return (\r\n+    <div>\r\n+        <Header/>\r\n+        <Table/>\r\n+        <button className=\"btn\" onClick={()=>navigate(\"/add\")}>Add</button>\r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default Home;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724585872574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import React from 'react'\r\n+import Header from '../Components/Header'\r\n+import Table from '../Components/Table'\r\n+import { useNavigate } from 'react-router-dom'\r\n+function Home() {\r\n+    let navigate = useNavigate();\r\n+  return (\r\n+    <div>\r\n+        <Header/>\r\n+        <Table/>\r\n+        <button className=\"btn-add\" onClick={()=>navigate(\"/add\")}>Add</button>\r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default Home;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724585894813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import React from 'react'\r\n+import Header from '../Components/Header'\r\n+import Table from '../Components/Table'\r\n+import { useNavigate } from 'react-router-dom'\r\n+function Home() {\r\n+    let navigate = useNavigate();\r\n+  return (\r\n+    <div>\r\n+        <Header/>\r\n+        <button className=\"btn-add\" onClick={()=>navigate(\"/add\")}>Add</button>\r\n+        <Table/>\r\n+       \r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default Home;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724586060300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+import React from 'react'\r\n+import Header from '../Components/Header'\r\n+import Table from '../Components/Table'\r\n+import { useNavigate } from 'react-router-dom'\r\n+function Home() {\r\n+    let navigate = useNavigate();\r\n+  return (\r\n+    <div>\r\n+        <Header/>\r\n+        \r\n+        <Table/>\r\n+       \r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default Home;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1724590497949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+import React from 'react'\r\n+import Header from '../Components/Header'\r\n+import Table from '../Components/Table'\r\n+function Home() {\r\n+\r\n+  return (\r\n+    <div>\r\n+        <Header/> \r\n+        <Table/>   \r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default Home;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1724580116406,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\nimport Header from '../Components/Header'\r\n\r\nfunction () {\r\n  return (\r\n    <div>\r\n        <Header/>\r\n        <Table/>\r\n    </div>\r\n  )\r\n}\r\n\r\nexport default "
+        }
+    ]
+}
